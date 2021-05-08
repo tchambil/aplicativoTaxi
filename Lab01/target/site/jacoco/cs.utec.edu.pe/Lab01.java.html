@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Lab01.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Lab01</a> &gt; <a href="index.source.html" class="el_package">cs.utec.edu.pe</a> &gt; <span class="el_source">Lab01.java</span></div><h1>Lab01.java</h1><pre class="source lang-java linenums">package cs.utec.edu.pe;
+
+import java.util.Scanner;
+import java.util.logging.Logger;
+
+<span class="fc" id="L6">public class Lab01 {</span>
+<span class="fc" id="L7">    static final Logger logger = Logger.getLogger(Lab01.class.getName());</span>
+    public static double precio(String serviceName, double distance, double time)
+    {
+<span class="fc" id="L10">        double finalPrice = 0;</span>
+<span class="pc bpc" id="L11" title="1 of 4 branches missed.">        switch (serviceName)</span>
+        {
+            case(&quot;UBER&quot;):
+<span class="fc" id="L14">                finalPrice = (1.2 * distance) + (0.1*time);</span>
+<span class="fc" id="L15">                break;</span>
+            case(&quot;Cabify&quot;):
+<span class="pc bpc" id="L17" title="1 of 2 branches missed.">                if (distance &gt; 20) finalPrice = 20*1.65 + 1.10*(distance-20);</span>
+<span class="nc" id="L18">                else finalPrice = distance*1.65;</span>
+<span class="nc" id="L19">                break;</span>
+            case(&quot;TaxiBeat&quot;):
+<span class="fc" id="L21">                finalPrice = 2.4 + (1.05*distance) + (0.34*time);</span>
+<span class="fc" id="L22">                break;</span>
+            default:
+<span class="nc" id="L24">                logger.info((&quot;Servicio no encontrado&quot;));</span>
+        }
+<span class="fc" id="L26">        return finalPrice;</span>
+    }
+    public static void main(String[] args){
+<span class="nc" id="L29">        logger.info(&quot;CS-UTEC Software Engineering I&quot;);</span>
+<span class="nc" id="L30">        logger.info(&quot;CS-UTEC Software Engineering I&quot;);</span>
+<span class="nc" id="L31">        var input = new Scanner(System.in);</span>
+<span class="nc" id="L32">        logger.info(&quot;distancia = &quot;);</span>
+<span class="nc" id="L33">        var distance = input.nextDouble();</span>
+<span class="nc" id="L34">        logger.info(&quot;tiempo = &quot;);</span>
+<span class="nc" id="L35">        var time = input.nextDouble();</span>
+
+<span class="nc" id="L37">        var company = new String[]{&quot;UBER&quot;, &quot;Cabify&quot;, &quot;TaxiBeat&quot;};</span>
+<span class="nc" id="L38">        double price = 0;</span>
+
+<span class="nc" id="L40">        logger.info(&quot;--------Output------&quot;);</span>
+<span class="nc bnc" id="L41" title="All 2 branches missed.">        for (var i = 0; i &lt; 3; i++) {</span>
+<span class="nc" id="L42">            price = precio(company[i], distance, time);</span>
+<span class="nc" id="L43">            var message = String.format(&quot;%S : %.2f%n&quot;, company[i], price);</span>
+<span class="nc" id="L44">            logger.info(message);</span>
+        }
+<span class="nc" id="L46">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>
